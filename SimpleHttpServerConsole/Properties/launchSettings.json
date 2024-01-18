@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SimpleHttpServerConsole": {
+      "commandName": "Project",
+      "commandLineArgs": "8015 C:\\Users\\exitn\\Desktop\\HttpServerSites"
+    }
+  }
+}
