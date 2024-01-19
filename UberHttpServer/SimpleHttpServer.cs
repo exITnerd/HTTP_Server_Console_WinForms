@@ -73,20 +73,33 @@ class SimpleHttpServer
             if (request.HttpMethod == "GET")
             {
                 string fileName;
-                if (request.Url.LocalPath.EndsWith(".html"))
+
+                // Extracting the requested file name from the URL
+                string requestedFileName = request.Url.Segments.LastOrDefault()?.Trim('/');
+                if (string.IsNullOrWhiteSpace(requestedFileName))
                 {
-                    fileName = Path.Combine(baseDirectory, request.Url.LocalPath.TrimStart('/'));
+                    // If no specific file is requested, default to "index.html"
+                    fileName = Path.Combine(baseDirectory, "index.html");
                 }
                 else
                 {
-                    fileName = GetRandomCsvFile();
+                    fileName = Path.Combine(baseDirectory, requestedFileName);
                 }
 
                 HandleFileRequest(request, response, fileName);
             }
         }
+        catch (FileNotFoundException)
+        {
+            // File not found (404)
+            response.StatusCode = (int)HttpStatusCode.NotFound;
+            byte[] buffer = System.Text.Encoding.UTF8.GetBytes("<html><body><h1>404 Not Found</h1></body></html>");
+            response.ContentLength64 = buffer.Length;
+            response.OutputStream.Write(buffer, 0, buffer.Length);
+        }
         catch (Exception ex)
         {
+            // Other exceptions (500)
             Console.WriteLine($"Error handling request: {ex.Message}");
             response.StatusCode = (int)HttpStatusCode.InternalServerError;
         }
@@ -137,20 +150,5 @@ class SimpleHttpServer
         string randomCsvValue = lines[randomIndex];
         string htmlContent = $"<html><body><h1>{randomCsvValue}</h1></body></html>";
         return htmlContent;
-    }
-
-    private string GetRandomCsvFile()
-    {
-        string[] csvFiles = Directory.GetFiles(baseDirectory, "*.csv");
-        if (csvFiles.Length > 0)
-        {
-            Random random = new Random();
-            int randomIndex = random.Next(csvFiles.Length);
-            return Path.Combine(baseDirectory, Path.GetFileName(csvFiles[randomIndex]));
-        }
-        else
-        {
-            return string.Empty;
-        }
     }
 }

@@ -114,19 +114,11 @@ class SimpleHttpServer
 
     private static string GenerateHtmlContent(string csvFilePath)
     {
-        // Implementuj logikę generowania kodu HTML na podstawie pliku CSV
-        // Wczytaj dane z pliku CSV, a następnie stwórz kod HTML
-
-        // Poniżej znajdziesz przykładową implementację, zakładając, że CSV zawiera jedną kolumnę
         string[] lines = File.ReadAllLines(csvFilePath);
         Random random = new Random();
         int randomIndex = random.Next(lines.Length);
-
         string randomCsvValue = lines[randomIndex];
-
-        // Wygeneruj kod HTML na podstawie wartości z pliku CSV
         string htmlContent = $"<html><body><h1>{randomCsvValue}</h1></body></html>";
-
         return htmlContent;
     }
 
@@ -141,7 +133,6 @@ class SimpleHttpServer
         }
         else
         {
-            // Brak plików CSV, zwróć pusty ciąg znaków (możesz dostosować zwracaną wartość)
             return string.Empty;
         }
     }

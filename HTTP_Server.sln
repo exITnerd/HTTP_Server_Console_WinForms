@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTP_Server", "HTTP_Server\HTTP_Server.csproj", "{2FD9872B-4406-4AA9-9138-DCC408D2512F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleHttpServerConsole", "SimpleHttpServerConsole\SimpleHttpServerConsole.csproj", "{D93079DD-12DD-4118-91EC-EB0311DF5E4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleHttpServerConsole", "SimpleHttpServerConsole\SimpleHttpServerConsole.csproj", "{D93079DD-12DD-4118-91EC-EB0311DF5E4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UberHttpServer", "UberHttpServer\UberHttpServer.csproj", "{B7F27171-1DA2-4A47-AAAA-2258F30CB3E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D93079DD-12DD-4118-91EC-EB0311DF5E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D93079DD-12DD-4118-91EC-EB0311DF5E4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D93079DD-12DD-4118-91EC-EB0311DF5E4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7F27171-1DA2-4A47-AAAA-2258F30CB3E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7F27171-1DA2-4A47-AAAA-2258F30CB3E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7F27171-1DA2-4A47-AAAA-2258F30CB3E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7F27171-1DA2-4A47-AAAA-2258F30CB3E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
