@@ -40,8 +40,6 @@ namespace SimpleHttpServerApp
                 Size = new System.Drawing.Size(200, 20),
                 Text = "8015"
             };
-            portTextBox.Enter += TextBox_Enter;
-            portTextBox.Leave += TextBox_Leave;
 
             directoryLabel = new Label
             {
@@ -55,8 +53,6 @@ namespace SimpleHttpServerApp
                 Size = new System.Drawing.Size(200, 20),
                 Text = "C:/Users/exitn/Desktop/HttpServerSites/"
             };
-            directoryTextBox.Enter += TextBox_Enter;
-            directoryTextBox.Leave += TextBox_Leave;
 
             startButton = new Button
             {
@@ -106,24 +102,6 @@ namespace SimpleHttpServerApp
             catch (Exception ex)
             {
                 MessageBox.Show($"Error while starting the server: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void TextBox_Enter(object sender, EventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            if (textBox.Text == textBox.AccessibleDescription)
-            {
-                textBox.Text = "";
-            }
-        }
-
-        private void TextBox_Leave(object sender, EventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            if (string.IsNullOrWhiteSpace(textBox.Text))
-            {
-                textBox.Text = textBox.AccessibleDescription;
             }
         }
 
